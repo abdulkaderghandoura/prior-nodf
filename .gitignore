@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+*.egg-info/
+
+# Data, outputs and logs, anchored to the repository root so that src/data/ is not ignored
+/data/
+/output/
+/logs/
+lightning_logs/
+
+# Downloaded registration weights (default location used by src/utils/register.py)
+/assets/
+
+# Imaging data, gradient tables, caches and model weights
+*.nii
+*.nii.gz
+*.mif
+*.nrrd
+*.bval
+*.bvec
+*.npy
+*.npz
+*.pt
+*.pth
+*.ckpt
+*.hdf5
+
+# Environments
+.env
+.venv/
