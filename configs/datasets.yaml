@@ -1,0 +1,27 @@
+# Data sources for src/prepare_dwi.py.
+#
+# The prepared data are written to
+#   <workspace>/<environment.name>/data/<dataset>/processed/sub-<id>/<HighRes|LowRes>/
+# where <workspace> is --personal_workspace, or environment.workspace_dir below.
+# With the repository cloned at <workspace>/prior-nodf, they land in its data/ folder,
+# where the rest of the pipeline reads them.
+#
+# In file names, {id} is replaced by the subject ID; in workspace_dir, {user} by the user name.
+
+environment:
+  name: "prior-nodf"
+  workspace_dir:
+    POSIX: null    # e.g. "/home/{user}"; otherwise pass --personal_workspace
+    Windows: null  # native Windows is untested; under WSL2 the POSIX entry applies
+
+data:
+
+  HCP:
+    HighRes:
+      source_dir: "/path/to/HCP/{id}"
+      dwi: "{id}_dwi.nii.gz"
+      bval: "{id}_dwi.bval"
+      bvec: "{id}_dwi.bvec"
+      mask: "{id}-dwimask.nii.gz"    # null: compute the mask with dwi2mask
+      json: null
+    LowRes: null
